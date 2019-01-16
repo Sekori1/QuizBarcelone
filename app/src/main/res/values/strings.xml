@@ -10,4 +10,11 @@
     <string name="quiz">Quiz</string>
     <string name="team_name">Nom de l\'équipe</string>
     <string name="start">Comenzar</string>
+
+
+    <string name="yellow_question_1">Lee el texto atentament y contesta: En qué ano fue liberada la ciudad de Madrid?</string>
+    <string name="yellow_question_1_reply1">1812</string>
+    <string name="yellow_question_1_reply2">1810</string>
+    <string name="yellow_question_1_reply3">1583</string>
+    <string name="yellow_question_1_reply4">1800"</string>
 </resources>
