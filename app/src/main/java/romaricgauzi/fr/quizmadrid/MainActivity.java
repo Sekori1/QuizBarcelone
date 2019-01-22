@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Il faut donner un nom à votre équipe",
                     Toast.LENGTH_SHORT).show();
         }else{
-            Intent intent = new Intent(this, QuestionList.class);
+            Intent intent = new Intent(this, HomelessnessList.class);
             intent.putExtra(TEAM_NAME_MESSAGE, txt);
             startActivity(intent);
             finish();

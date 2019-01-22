@@ -18,8 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Question" android:screenOrientation="portrait" />
-        <activity android:name=".QuestionList" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Question"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuestionList"
+            android:screenOrientation="portrait" />
+        <activity android:name=".HomelessnessList" />
+        <activity android:name=".PreQuestion"></activity>
     </application>
 
 </manifest>

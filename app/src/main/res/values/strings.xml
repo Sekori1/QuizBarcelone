@@ -11,10 +11,28 @@
     <string name="team_name">Nom de l\'équipe</string>
     <string name="start">Comenzar</string>
 
-
     <string name="yellow_question_1">Lee el texto atentament y contesta: En qué ano fue liberada la ciudad de Madrid?</string>
     <string name="yellow_question_1_reply1">1812</string>
     <string name="yellow_question_1_reply2">1810</string>
     <string name="yellow_question_1_reply3">1583</string>
-    <string name="yellow_question_1_reply4">1800"</string>
+    <string name="yellow_question_1_reply4">1800</string>
+
+    <string name="yellow_question_2">Que instrumento musical ves en las torres de la catedral?</string>
+    <string name="yellow_question_2_reply1">Trompeta</string>
+    <string name="yellow_question_2_reply2">Guitarra</string>
+    <string name="yellow_question_2_reply3">Campana</string>
+    <string name="yellow_question_2_reply4">Piano</string>
+
+    <string name="yellow_question_3">Quién es la estatua que aparece senalada en rojo?</string>
+    <string name="yellow_question_3_reply1">San juan</string>
+    <string name="yellow_question_3_reply2">San Matias</string>
+    <string name="yellow_question_3_reply3">San Pedro</string>
+    <string name="yellow_question_3_reply4">San Simon</string>
+
+    <string name="yellow_question_4">De qué color es la bandera espanola que estan en su fachada?</string>
+    <string name="yellow_question_4_reply1">Roja y azul</string>
+    <string name="yellow_question_4_reply2">Roja y amarilla</string>
+    <string name="yellow_question_4_reply3">Roja y verde</string>
+    <string name="yellow_question_4_reply4">Roja y blanca</string>
+
 </resources>
