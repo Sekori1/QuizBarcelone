@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 public class QuestionList extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class QuestionList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_list);
 
+        Log.d("TEST", "Create()");
+
         questionGroup = HomelessnessList.getQuestionGroup(getIntent());
 
         if(questionGroup != null){
@@ -30,4 +33,23 @@ public class QuestionList extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d("TEST", "Start()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d("TEST", "Stop()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("TEST", "Pause()");
+    }
 }

@@ -1,8 +1,10 @@
 package romaricgauzi.fr.quizmadrid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,7 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
     private LayoutInflater mInflater;
     private QuestionGroup questionGroup;
 
-    public QuestionListAdapter(Context context, QuestionGroup questionGroup) {
+    public QuestionListAdapter(QuestionList context, QuestionGroup questionGroup) {
         this.mInflater = LayoutInflater.from(context);
         this.questionGroup = questionGroup;
     }
@@ -29,13 +31,30 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QuestionViewHolder holder, int i) {
-        QuestionProfil questionProfil = questionGroup.getQuestionProfils()[i];
+    public void onBindViewHolder(@NonNull final QuestionViewHolder holder, final int id) {
+        Log.d("TEST","BUILD QUESTION ID "  + id);
+        final QuestionProfil questionProfil = questionGroup.getQuestionProfils()[id];
 
-        int r = questionGroup.getAnswereOf(i);
+        int r = questionGroup.getAnswereOf(id);
 
         if(r != 0)holder.getImageView().setVisibility(View.VISIBLE);
-        holder.getQuestionTitle().setText("Question " + (i+1));
+        final TextView textView = holder.getQuestionTitle();
+        textView.setText("Question " + (id+1));
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, Question.class);
+
+                intent.putExtra(Question.QUESTION_MESSAGE, questionProfil.getQuestion());
+                intent.putExtra(Question.REPLY_MESSAGE, questionProfil.getReply());
+                intent.putExtra(Question.QUESTION_GROUP_ID_MESSAGE, questionGroup.getId());
+                intent.putExtra(Question.QUESTION_ID_MESSAGE, id);
+
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
