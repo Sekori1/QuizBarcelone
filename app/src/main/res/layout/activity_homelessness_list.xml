@@ -8,49 +8,149 @@
     android:orientation="vertical"
     tools:context=".HomelessnessList">
 
-
-
-    <android.support.constraint.ConstraintLayout
+    <TextView
+        android:id="@+id/teamNameHeader"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/team_name_header"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-condensed" />
 
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/it1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:onClick="selectRedItineraire"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="26dp">
 
-        <TextView
-            android:id="@+id/teamNameHeader"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/team_name_header"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:fontFamily="sans-serif-condensed"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-    </android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_school_black_24dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toStartOf="@+id/titleTextI1"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.8" />
+
+            <TextView
+                android:id="@+id/titleTextI1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/itineraryRed"
+                android:textAlignment="center"
+                android:textColor="@color/redI"
+                android:textSize="20sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/it1Prog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="0%"
+                android:textAlignment="center"
+                android:textColor="@color/redI"
+                android:textSize="16sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/titleTextI1"
+                tools:ignore="HardcodedText" />
+
+        </android.support.constraint.ConstraintLayout>
 
 
-    <LinearLayout
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/it2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:onClick="selectRedItineraire"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="26dp">
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/it3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:onClick="selectRedItineraire"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="26dp">
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/it4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:onClick="selectRedItineraire"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="26dp">
+
+    </android.support.v7.widget.CardView>
+    <!--<LinearLayout
         android:id="@+id/itLine1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:orientation="vertical">
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/it1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:onClick="selectRedItineraire"
             card_view:cardBackgroundColor="@color/white"
-            card_view:cardCornerRadius="14dp"
-            android:onClick="selectRedItineraire">
+            card_view:cardCornerRadius="14dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -83,7 +183,7 @@
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/it2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -120,20 +220,10 @@
 
         </android.support.v7.widget.CardView>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/itLine2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_weight="2"
-        app:layout_constraintTop_toBottomOf="@id/itLine1">
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/it3"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -143,8 +233,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 android:src="@drawable/ic_camera_alt_black_24dp" />
 
             <TextView
@@ -172,7 +262,7 @@
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/it4"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -209,7 +299,7 @@
 
         </android.support.v7.widget.CardView>
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
     <android.support.constraint.ConstraintLayout

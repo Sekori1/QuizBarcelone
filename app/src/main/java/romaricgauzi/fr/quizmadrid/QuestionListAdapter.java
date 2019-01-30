@@ -32,12 +32,15 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final QuestionViewHolder holder, final int id) {
-        Log.d("TEST","BUILD QUESTION ID "  + id);
         final QuestionProfil questionProfil = questionGroup.getQuestionProfils()[id];
 
         int r = questionGroup.getAnswereOf(id);
 
-        if(r != 0)holder.getImageView().setVisibility(View.VISIBLE);
+        Log.d("TEST","BUILD QUESTION ID "  + id + " , ANSWER ID " + r);
+
+        ImageView imageView = holder.getImageView();
+        if(r != 0)imageView.setVisibility(View.VISIBLE);
+            else imageView.setVisibility(View.GONE);
         final TextView textView = holder.getQuestionTitle();
         textView.setText("Question " + (id+1));
         textView.setOnClickListener(new View.OnClickListener() {

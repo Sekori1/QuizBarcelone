@@ -37,6 +37,8 @@ public class QuestionList extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        mAdapter.notifyDataSetChanged();
+
         Log.d("TEST", "Start()");
     }
 

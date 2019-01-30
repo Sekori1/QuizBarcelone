@@ -68,10 +68,10 @@ public class Question extends AppCompatActivity {
 
     private void closeActivity(){
         //TODO open an other activitu
-        Intent intent = new Intent(this, QuestionList.class);
+        /*Intent intent = new Intent(this, QuestionList.class);
 
         HomelessnessList.selectExtraGroup(intent, question_group_id);
-        startActivity(intent);
+        startActivity(intent);*/
 
         finish();
     }
