@@ -7,6 +7,7 @@
     <color name="buttonColor">#ffec8e</color>
     <color name="buttonColorBorder">#393939</color>
     <color name="white">#ffffff</color>
+    <color name="whiteDark">#EDEDED</color>
 
     <color name="redI">#a72325</color>
     <color name="yellowI">#b6b623</color>

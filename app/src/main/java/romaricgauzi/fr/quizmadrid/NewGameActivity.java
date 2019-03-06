@@ -1,13 +1,14 @@
 package romaricgauzi.fr.quizmadrid;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class NewGameActivity extends AppCompatActivity {
 
     public static String TEAM_NAME_MESSAGE = "TEAM_NAME_MESSAGE";
 
@@ -16,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setContentView(R.layout.new_game);
 
         this.editText = findViewById(R.id.teamName);
     }

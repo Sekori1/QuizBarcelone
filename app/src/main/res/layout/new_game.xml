@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="romaricgauzi.fr.quizmadrid.MainActivity">
+    tools:context="romaricgauzi.fr.quizmadrid.NewGameActivity">
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -63,18 +64,13 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/bottom_button"
+        android:onClick="startGame"
         android:text="@string/start"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:onClick="startGame"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

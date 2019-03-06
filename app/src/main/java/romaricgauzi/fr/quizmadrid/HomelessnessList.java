@@ -28,8 +28,8 @@ public class HomelessnessList extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null && teamTitle != null){
             Bundle bundle = intent.getExtras();
-            if(bundle != null && bundle.containsKey(MainActivity.TEAM_NAME_MESSAGE)){
-                this.teamName = intent.getStringExtra(MainActivity.TEAM_NAME_MESSAGE);
+            if(bundle != null && bundle.containsKey(NewGameActivity.TEAM_NAME_MESSAGE)){
+                this.teamName = intent.getStringExtra(NewGameActivity.TEAM_NAME_MESSAGE);
                 this.teamTitle.setText(teamName);
             }
         }
