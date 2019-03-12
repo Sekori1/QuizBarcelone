@@ -34,5 +34,8 @@
     <string name="yellow_question_4_reply2">Roja y amarilla</string>
     <string name="yellow_question_4_reply3">Roja y verde</string>
     <string name="yellow_question_4_reply4">Roja y blanca</string>
+    <string name="resume_game">Reprendre</string>
+    <string name="new_game">Nouvelle partie</string>
+    <string name="main_title">Quiz</string>
 
 </resources>
