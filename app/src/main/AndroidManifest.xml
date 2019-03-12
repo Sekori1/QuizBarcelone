@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".NewGameActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,8 @@
             android:name=".QuestionList"
             android:screenOrientation="portrait" />
         <activity android:name=".HomelessnessList" />
-        <activity android:name=".PreQuestion"></activity>
+        <activity android:name=".PreQuestion" />
+        <activity android:name=".NewGameActivity"></activity>
     </application>
 
 </manifest>

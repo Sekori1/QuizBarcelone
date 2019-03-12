@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#003df5</color>
-    <color name="colorPrimaryDark">#001df5</color>
+    <color name="colorPrimary">#dfc938</color>
+    <color name="colorPrimaryDark">#978a2f</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorMainPage">#9c3e3a3a</color>
     <color name="buttonColor">#ffec8e</color>
@@ -13,4 +13,5 @@
     <color name="yellowI">#b6b623</color>
     <color name="blueI">#3e59af</color>
     <color name="greenI">#3fa328</color>
+    <color name="grey">#838282</color>
 </resources>

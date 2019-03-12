@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<!--
+    <item android:gravity="bottom" android:height="470dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white">
+
+            </solid>
+        </shape>
+    </item>
+-->
+    <item android:gravity="top" android:drawable="@drawable/background_madrid"/>
+    <item android:height="400dp">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:height="100dp"
+            android:width="100dp"
+            android:viewportHeight="100"
+            android:viewportWidth="100">
+
+            <path
+                android:name="dark_triangle"
+                android:fillColor="@color/white"
+                android:pathData="M 300,0 L 0,100 100,100 z" />
+
+            <path
+                android:name="light_triangle"
+                android:fillColor="#a6dccc1f"
+                android:pathData="M 0,0 L 300,0 0,100 z" />
+
+        </vector>
+    </item>
+   <!-- <item android:gravity="center|top" android:drawable="@drawable/whitelogo"  /> -->
+</layer-list>
