@@ -4,21 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/madrid_full_background"
     tools:context="romaricgauzi.fr.quizmadrid.NewGameActivity">
 
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:minHeight="70dp"
+        android:background="#0000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="#fff"
-        app:title="Nouvelle Partie"
-        app:navigationIcon="@drawable/arrow_left" />
+        app:navigationIcon="@drawable/arrow_left_black" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="right"
+        android:text="@string/start_title"
+        android:textAlignment="gravity"
+        android:textColor="@color/dark"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/rubik_regular"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="120dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <EditText
+            android:id="@+id/teamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/team_name"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/new_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="60dp"
+            android:background="@drawable/button_yellow_fill"
+            android:onClick="startGame"
+            android:text="@string/start"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:fontFamily="@font/rubik_regular" />
+
+    </LinearLayout>
+
+    <!--<LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +127,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
 </android.support.constraint.ConstraintLayout>

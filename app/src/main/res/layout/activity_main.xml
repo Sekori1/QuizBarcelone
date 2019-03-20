@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/top_image_main" />
@@ -26,53 +26,61 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:srcCompat="@drawable/whitelogotext" />
+        app:srcCompat="@drawable/whitelogotext" />-->
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:gravity="right"
         android:text="@string/main_title"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
-        android:textSize="50sp"
+        android:textAlignment="gravity"
+        android:textColor="@color/dark"
+        android:textSize="55sp"
+        android:textStyle="bold"
         app:fontFamily="@font/rubik_regular"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="92dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/resume_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
+            android:layout_marginBottom="13dp"
+            android:height="60dp"
             android:background="@drawable/button_grey_border"
             android:text="@string/resume_game"
-            android:textColor="@color/grey"
+            android:textColor="@color/dark"
+            android:textSize="20sp"
             app:fontFamily="@font/rubik_regular" />
 
         <Button
             android:id="@+id/new_game_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:height="60dp"
             android:background="@drawable/button_yellow_fill"
             android:text="@string/new_game"
             android:textColor="#fff"
+            android:textSize="20sp"
             app:fontFamily="@font/rubik_regular" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

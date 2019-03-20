@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Chronometer;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class HomelessnessList extends AppCompatActivity {
 
     private String teamName;
-    private Chronometer chronometer;
-    private TextView teamTitle;
+    /*private Chronometer chronometer;
+    private TextView teamTitle;*/
 
     public final static String QUESTION_GROUP_ID = "QUESTION_GROUP_ID";
 
@@ -22,10 +23,15 @@ public class HomelessnessList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homelessness_list);
 
-        this.teamTitle = findViewById(R.id.teamNameHeader);
-        this.chronometer = findViewById(R.id.chrono);
+        /*this.teamTitle = findViewById(R.id.teamNameHeader);
+        this.chronometer = findViewById(R.id.chrono);*/
 
-        Intent intent = getIntent();
+        ProgressBar progressBar = findViewById(R.id.progress_bar);
+        int value = progressBar.getMax();
+
+        progressBar.setProgress(value/2);
+
+        /*Intent intent = getIntent();
         if(intent != null && teamTitle != null){
             Bundle bundle = intent.getExtras();
             if(bundle != null && bundle.containsKey(NewGameActivity.TEAM_NAME_MESSAGE)){
@@ -43,7 +49,7 @@ public class HomelessnessList extends AppCompatActivity {
 
                 }
             });
-        }
+        }*/
         questions[0] = new QuestionGroup(getString(R.string.itineraryYellow), 0,
                 new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
                 new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),

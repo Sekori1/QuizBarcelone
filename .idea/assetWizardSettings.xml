@@ -101,12 +101,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ffffff" />
-                            <entry key="height" value="50" />
-                            <entry key="outputName" value="arrow_left" />
+                            <entry key="color" value="2f2d2d" />
+                            <entry key="height" value="40" />
+                            <entry key="outputName" value="arrow_left_black" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\admin" />
-                            <entry key="width" value="50" />
+                            <entry key="width" value="40" />
                           </map>
                         </option>
                       </PersistentState>

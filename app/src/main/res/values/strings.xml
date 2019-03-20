@@ -9,7 +9,7 @@
     <string name="team_name_header">Equipe {TEAM_NAME}</string>
     <string name="quiz">Quiz</string>
     <string name="team_name">Nom de l\'équipe</string>
-    <string name="start">Comenzar</string>
+    <string name="start">Commencez</string>
 
     <string name="yellow_question_1">Lee el texto atentament y contesta: En qué ano fue liberada la ciudad de Madrid?</string>
     <string name="yellow_question_1_reply1">1812</string>
@@ -36,6 +36,7 @@
     <string name="yellow_question_4_reply4">Roja y blanca</string>
     <string name="resume_game">Reprendre</string>
     <string name="new_game">Nouvelle partie</string>
-    <string name="main_title">Quiz</string>
+    <string name="main_title">Découvrez\nMadrid</string>
+    <string name="start_title">Commencez\nle Quiz</string>
 
 </resources>
