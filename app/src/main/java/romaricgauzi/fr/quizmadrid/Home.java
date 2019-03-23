@@ -1,5 +1,8 @@
 package romaricgauzi.fr.quizmadrid;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,6 +19,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 public class Home extends AppCompatActivity {
+
+    private final static int BACK_ALERT = 10;
 
     private BottomNavigationView bottomNavigationView;
     private ProgressBar progressBar;
@@ -105,11 +110,39 @@ public class Home extends AppCompatActivity {
     {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
+            showDialog(BACK_ALERT);
             return false;
         }
 
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case BACK_ALERT:
+                // Create out AlterDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Voulez-vous vraiment quitter le Quiz ?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+                    }
+                });
+                builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+        }
+        return super.onCreateDialog(id);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
