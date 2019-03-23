@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_android"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera_alt_black_24dp"
+        android:title="@string/itineraryYellow"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_logo"
+        android:enabled="true"
+        android:icon="@drawable/ic_store_black_24dp"
+        android:title="@string/itineraryGreen"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_landscape"
+        android:enabled="true"
+        android:icon="@drawable/ic_school_black_24dp"
+        android:title="@string/itineraryRed"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_bottom_4"
+        android:enabled="true"
+        android:icon="@drawable/ic_free_breakfast_black_24dp"
+        android:title="@string/itineraryBlue"
+        app:showAsAction="ifRoom" />
+</menu>

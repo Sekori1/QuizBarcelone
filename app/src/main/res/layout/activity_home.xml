@@ -5,16 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomelessnessList">
+    tools:context=".Home">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        style="@style/MyProgressBarTwo"
-        android:theme="@style/MyProgressBarTwo"
-        android:progress="30"
-        android:secondaryProgress="60"/>
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/top_menu"
+        android:background="@color/colorPrimaryDark" >
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/MyProgressBarTwo"
+            android:layout_height="20dp"
+            android:layout_width="fill_parent"
+            android:progress="40"
+            android:layout_gravity="left"
+            android:theme="@style/MyProgressBarTwo" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <!--<LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:minHeight="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/MyProgressBarTwo"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:progress="40"
+            android:layout_gravity="center"
+            android:theme="@style/MyProgressBarTwo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:src="@drawable/locked" />
+
+    </LinearLayout>-->
+
+    <!--<android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/Nav" />-->
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/activity_main_bottom_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/activity_main_bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@drawable/bottom_navigation_colors"
+            app:itemTextColor="@drawable/bottom_navigation_colors"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />
+
+
+    </android.support.constraint.ConstraintLayout>
 
     <!--<TextView
         android:id="@+id/teamNameHeader"

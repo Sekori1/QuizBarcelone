@@ -1,8 +1,10 @@
 package romaricgauzi.fr.quizmadrid;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,6 +30,10 @@ public class Question extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         Intent intent = getIntent();
 
         if(intent != null){
@@ -52,6 +58,8 @@ public class Question extends AppCompatActivity {
         replyView[2] = findViewById(R.id.reply3);
         replyView[3] = findViewById(R.id.reply4);
 
+        int r = Home.getQuestionGroup(question_group_id).getAnswereOf(question_id);
+
         questionView.setText(question);
         for (int i = 0; i < 4; i++) {
             final int reponseNumber = i+1;
@@ -59,20 +67,31 @@ public class Question extends AppCompatActivity {
             replyView[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    HomelessnessList.getQuestionGroup(question_group_id).setAnswereOf(question_id, reponseNumber);
+                    Home.getQuestionGroup(question_group_id).setAnswereOf(question_id, reponseNumber);
                     closeActivity();
                 }
             });
+            if(r == i+1){
+                replyView[i].setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.answer_button_validate) );
+                replyView[i].setTextColor(getResources().getColor(R.color.white));
+            }
         }
     }
 
     private void closeActivity(){
-        //TODO open an other activitu
+        //TODO open an other activity
         /*Intent intent = new Intent(this, QuestionList.class);
 
-        HomelessnessList.selectExtraGroup(intent, question_group_id);
+        Home.selectExtraGroup(intent, question_group_id);
         startActivity(intent);*/
 
         finish();
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

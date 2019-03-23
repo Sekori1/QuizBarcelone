@@ -30,4 +30,8 @@ public class QuestionGroup {
     public int getId() {
         return id;
     }
+
+    public int getQuestionAmount(){
+        return questionProfils.length;
+    }
 }

@@ -17,7 +17,7 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
     private LayoutInflater mInflater;
     private QuestionGroup questionGroup;
 
-    public QuestionListAdapter(QuestionList context, QuestionGroup questionGroup) {
+    public QuestionListAdapter(Context context, QuestionGroup questionGroup) {
         this.mInflater = LayoutInflater.from(context);
         this.questionGroup = questionGroup;
     }
@@ -38,12 +38,13 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
         Log.d("TEST","BUILD QUESTION ID "  + id + " , ANSWER ID " + r);
 
+        View view = holder.getView();
         ImageView imageView = holder.getImageView();
-        if(r != 0)imageView.setVisibility(View.VISIBLE);
-            else imageView.setVisibility(View.GONE);
+        if(r != 0)imageView.setColorFilter(view.getResources().getColor(R.color.colorPrimaryDark));
+            else imageView.setColorFilter(view.getResources().getColor(R.color.grey));
         final TextView textView = holder.getQuestionTitle();
         textView.setText("Question " + (id+1));
-        textView.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
@@ -69,10 +70,12 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
         private TextView questionTitle;
         private ImageView imageView;
+        private View view;
         final QuestionListAdapter mAdapter;
 
         public QuestionViewHolder(View itemView, QuestionListAdapter adapter) {
             super(itemView);
+            view = itemView;
             questionTitle = itemView.findViewById(R.id.question_title);
             imageView = itemView.findViewById(R.id.check);
             this.mAdapter = adapter;
@@ -84,6 +87,10 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
         public ImageView getImageView() {
             return imageView;
+        }
+
+        public View getView() {
+            return view;
         }
     }
 }

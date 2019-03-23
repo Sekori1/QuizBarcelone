@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fcbb2f</color>
-    <color name="colorPrimaryDark">#af811d</color>
-    <color name="colorAccent">#5e054f</color>
-    <color name="colorMainPage">#9c3e3a3a</color>
-    <color name="buttonColor">#ffec8e</color>
-    <color name="buttonColorBorder">#393939</color>
-    <color name="white">#ffffff</color>
-    <color name="whiteDark">#EDEDED</color>
+    <color name="colorPrimary">#DDAD1A</color>
+    <color name="colorPrimaryDark">#1B263B</color>
+    <color name="colorAccent">#EB5160</color>
+    <color name="white">#E8E8E8</color>
+    <color name="grey">#BFBFBF</color>
+
     <color name="dark">#282727</color>
+    <color name="black">#25231E</color>
 
     <color name="redI">#a72325</color>
     <color name="yellowI">#b6b623</color>
     <color name="blueI">#3e59af</color>
     <color name="greenI">#3fa328</color>
-    <color name="grey">#838282</color>
+
+    <color name="progressFill">#5e054f</color>
+    <color name="progressNoFill">#EDEDED</color>
 </resources>

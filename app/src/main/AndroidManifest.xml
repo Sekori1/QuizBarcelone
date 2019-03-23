@@ -24,7 +24,9 @@
         <activity
             android:name=".QuestionList"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomelessnessList" />
+        <activity
+            android:name=".Home"
+            android:screenOrientation="portrait"/>
         <activity android:name=".PreQuestion" />
         <activity android:name=".NewGameActivity"></activity>
     </application>

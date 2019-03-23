@@ -37,7 +37,7 @@ public class NewGameActivity extends AppCompatActivity {
             Toast.makeText(this, "Il faut donner un nom à votre équipe",
                     Toast.LENGTH_SHORT).show();
         }else{
-            Intent intent = new Intent(this, HomelessnessList.class);
+            Intent intent = new Intent(this, Home.class);
             intent.putExtra(TEAM_NAME_MESSAGE, txt);
             startActivity(intent);
             finish();

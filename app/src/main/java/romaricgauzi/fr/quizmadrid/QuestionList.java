@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
 public class QuestionList extends AppCompatActivity {
 
@@ -21,7 +20,7 @@ public class QuestionList extends AppCompatActivity {
 
         Log.d("TEST", "Create()");
 
-        questionGroup = HomelessnessList.getQuestionGroup(getIntent());
+        questionGroup = Home.getQuestionGroup(getIntent());
 
         if(questionGroup != null){
             mRecyclerView = findViewById(R.id.recyclerview);

@@ -1,18 +1,24 @@
 package romaricgauzi.fr.quizmadrid;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Chronometer;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
-public class HomelessnessList extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
-    private String teamName;
-    /*private Chronometer chronometer;
-    private TextView teamTitle;*/
+    private BottomNavigationView bottomNavigationView;
+    private ProgressBar progressBar;
 
     public final static String QUESTION_GROUP_ID = "QUESTION_GROUP_ID";
 
@@ -21,35 +27,25 @@ public class HomelessnessList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homelessness_list);
+        setContentView(R.layout.activity_home);
 
-        /*this.teamTitle = findViewById(R.id.teamNameHeader);
-        this.chronometer = findViewById(R.id.chrono);*/
+        this.bottomNavigationView = findViewById(R.id.activity_main_bottom_navigation);
+        this.progressBar = findViewById(R.id.progress_bar);
 
-        ProgressBar progressBar = findViewById(R.id.progress_bar);
-        int value = progressBar.getMax();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        progressBar.setProgress(value/2);
+        final ViewPager viewPager = findViewById(R.id.pager);
+        final PagerAdapter adapter = new PagerAdapter
+                (getSupportFragmentManager(), 4);
+        viewPager.setAdapter(adapter);
 
-        /*Intent intent = getIntent();
-        if(intent != null && teamTitle != null){
-            Bundle bundle = intent.getExtras();
-            if(bundle != null && bundle.containsKey(NewGameActivity.TEAM_NAME_MESSAGE)){
-                this.teamName = intent.getStringExtra(NewGameActivity.TEAM_NAME_MESSAGE);
-                this.teamTitle.setText(teamName);
-            }
-        }
+        BottomNavListener bottomNavListener = new BottomNavListener(bottomNavigationView, viewPager);
 
-        if(chronometer != null){
-            this.chronometer.setFormat(("Temps: %s"));
-            this.chronometer.start();
-            this.chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-                @Override
-                public void onChronometerTick(Chronometer chronometer) {
+        viewPager.addOnPageChangeListener(bottomNavListener);
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavListener);
 
-                }
-            });
-        }*/
         questions[0] = new QuestionGroup(getString(R.string.itineraryYellow), 0,
                 new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
                 new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
@@ -92,32 +88,33 @@ public class HomelessnessList extends AppCompatActivity {
                 new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2)
         );
 
+        updateProgressBar();
+
     }
 
-    public void selectRedItineraire(View view) {
-        selectItineraire(0);
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        updateProgressBar();
     }
 
-    public void selectBlueItineraire(View view) {
-        selectItineraire(1);
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return false;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
-    public void selectYellowItineraire(View view) {
-        selectItineraire(2);
-    }
-
-    public void selectGreenItineraire(View view) {
-        selectItineraire(3);
-    }
-
-    public void selectItineraire(int id){
-        Intent intent = new Intent(this, QuestionList.class);
-        intent.putExtra(QUESTION_GROUP_ID, id);
-        startActivity(intent);
-    }
-
-    public static void selectExtraGroup(Intent intent, int id){
-        intent.putExtra(QUESTION_GROUP_ID, id);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu, menu);
+        return true;
     }
 
     public static QuestionGroup getQuestionGroup(Intent intent){
@@ -134,5 +131,18 @@ public class HomelessnessList extends AppCompatActivity {
 
     public static QuestionGroup getQuestionGroup(int id){
         return questions[id];
+    }
+
+    public void updateProgressBar(){
+        int max = 0;
+        int answered = 0;
+        for(QuestionGroup questionGroup : questions){
+            max += questionGroup.getQuestionAmount();
+            for(int i = 0; i < max; i++){
+                if(questionGroup.getAnswereOf(i) > 0)answered++;
+            }
+        }
+        progressBar.setMax(max);
+        progressBar.setProgress(answered);
     }
 }

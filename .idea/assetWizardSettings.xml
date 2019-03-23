@@ -91,7 +91,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_left_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_mode_edit_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -101,12 +101,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="2f2d2d" />
-                            <entry key="height" value="40" />
-                            <entry key="outputName" value="arrow_left_black" />
+                            <entry key="color" value="1b263b" />
+                            <entry key="height" value="64" />
+                            <entry key="outputName" value="edit_icon" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\admin" />
-                            <entry key="width" value="40" />
+                            <entry key="width" value="64" />
                           </map>
                         </option>
                       </PersistentState>
