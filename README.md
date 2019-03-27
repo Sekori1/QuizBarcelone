@@ -6,7 +6,7 @@ Les réponses à chaque questions sont données à la fin du parcours.
 
 Le contenu est bassé sur le quiz proposé aux eleves du lycée de Parentis lors du voyage de 2018 en Espagne
 
-##En Developpement
+## En Developpement
 
 L'application est encore en développement.
 Celle-ci sera seulement disponible sur le google play store lors de sa sortie.
