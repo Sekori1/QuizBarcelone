@@ -2,8 +2,10 @@ package romaricgauzi.fr.quizmadrid;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -27,12 +29,16 @@ public class Home extends AppCompatActivity {
 
     public final static String QUESTION_GROUP_ID = "QUESTION_GROUP_ID";
 
+    public static String PACKAGE_NAME;
+
     private static QuestionGroup[] questions = new QuestionGroup[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        PACKAGE_NAME = getPackageName();
 
         this.bottomNavigationView = findViewById(R.id.activity_main_bottom_navigation);
         this.progressBar = findViewById(R.id.progress_bar);
@@ -161,6 +167,25 @@ public class Home extends AppCompatActivity {
         }
         return null;
     }
+
+    public static QuestionRes getQuestionRes(Context context, int groupID, int questionID){
+        /* FORMAT QUESTION
+        *
+        *   G<NUMBER>Q<Number><Q|D|R<0|1|2|3>>
+         */
+        QuestionRes questionRes = new QuestionRes();
+        questionRes.setQuestion(findStringFromResources(context,"G" + groupID + "Q" + questionID + "Q"));
+        String[] answers = new String[4];
+        for (int i = 0; i < answers.length; i++) answers[i] = findStringFromResources(context,"G" + groupID + "Q" + questionID + "A" + i);
+        questionRes.setAnsweres(answers);
+        return questionRes;
+    }
+
+    public static String findStringFromResources(Context context, String name) {
+        Resources res = context.getResources();
+        return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
+    }
+
 
     public static QuestionGroup getQuestionGroup(int id){
         return questions[id];

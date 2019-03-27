@@ -46,4 +46,110 @@
     <string name="question_label2">Vert</string>
     <string name="question_label3">Bleu</string>
     <string name="question_label4">Jaune</string>
+
+
+    <!-- QUESTIONS
+
+        FORMAT: G<NUMBER>Q<Number><Q|D|R<0|1|2|3>>
+    -->
+
+    <!-- GROUPE 2 -->
+
+    <string name="G2Q0Q">Lee el texto atentament y contesta: ¿En qué ano fue liberada la ciudad de Madrid?</string>
+    <string name="G2Q0A0">1812</string>
+    <string name="G2Q0A1">1810</string>
+    <string name="G2Q0A2">1583</string>
+    <string name="G2Q0A3">1800</string>
+
+    <string name="G2Q1Q">¿Que instrumento musical ves en las torres de la catedral?</string>
+    <string name="G2Q1A0">Trompeta</string>
+    <string name="G2Q1A1">Guitarra</string>
+    <string name="G2Q1A2">Campana</string>
+    <string name="G2Q1A3">Piano</string>
+
+    <string name="G2Q2Q">¿Quién es la estatua que aparece senalada en rojo?</string>
+    <string name="G2Q2A0">San juan</string>
+    <string name="G2Q2A1">San Matias</string>
+    <string name="G2Q2A2">San Pedro</string>
+    <string name="G2Q2A3">San Simon</string>
+
+    <string name="G2Q3Q">¿De qué color es la bandera espanola que estan en su fachada?</string>
+    <string name="G2Q3A0">Roja y azul</string>
+    <string name="G2Q3A1">Roja y amarilla</string>
+    <string name="G2Q3A2">Roja y verde</string>
+    <string name="G2Q3A3">Roja y blanca</string>
+
+    <string name="G2Q4Q">Observa la estatua que hay en esta hoja. ¿Quien es? Està en el centro de la plaza</string>
+    <string name="G2Q4A0">Felipe IV</string>
+    <string name="G2Q4A1">José Bonaparte</string>
+    <string name="G2Q4A2">Felipe III</string>
+    <string name="G2Q4A3">Galileo Galilei</string>
+
+    <string name="G2Q5Q">¿Como se llama esta plaza? Busca el nombre cerca de la plaza</string>
+    <string name="G2Q5A0">Plaza Mayor</string>
+    <string name="G2Q5A1">Plaza Almudena</string>
+    <string name="G2Q5A2">Plaza Oriente</string>
+    <string name="G2Q5A3">Plaza Espana</string>
+
+    <string name="G2Q6Q">¿Que se representa en el Teatro Real?</string>
+    <string name="G2Q6A0">Peliculas</string>
+    <string name="G2Q6A1">Discursos electrorales</string>
+    <string name="G2Q6A2">Conciertos, operas y obras teatrales</string>
+    <string name="G2Q6A3">Publicidad de viajes</string>
+
+    <string name="G2Q7Q">¿Como se llama la estacion de metro de esta plaza?</string>
+    <string name="G2Q7A0">Isabel II</string>
+    <string name="G2Q7A1">Opera</string>
+    <string name="G2Q7A2">Callao</string>
+    <string name="G2Q7A3">Sol</string>
+
+        <!-- GROUPE 3 -->
+
+    <string name="G3Q0Q">Lee el texto atentament y contesta: ¿En qué ano fue liberada la ciudad de Madrid?</string>
+    <string name="G3Q0A0">1812</string>
+    <string name="G3Q0A1">1810</string>
+    <string name="G3Q0A2">1583</string>
+    <string name="G3Q0A3">1800</string>
+
+    <string name="G3Q1Q">¿Que instrumento musical ves en las torres de la catedral?</string>
+    <string name="G3Q1A0">Trompeta</string>
+    <string name="G3Q1A1">Guitarra</string>
+    <string name="G3Q1A2">Campana</string>
+    <string name="G3Q1A3">Piano</string>
+
+    <string name="G3Q2Q">¿Quién es la estatua que aparece senalada en rojo?</string>
+    <string name="G3Q2A0">San juan</string>
+    <string name="G3Q2A1">San Matias</string>
+    <string name="G3Q2A2">San Pedro</string>
+    <string name="G3Q2A3">San Simon</string>
+
+    <string name="G3Q3Q">¿De qué color es la bandera espanola que estan en su fachada?</string>
+    <string name="G3Q3A0">Roja y azul</string>
+    <string name="G3Q3A1">Roja y amarilla</string>
+    <string name="G3Q3A2">Roja y verde</string>
+    <string name="G3Q3A3">Roja y blanca</string>
+
+    <string name="G3Q4Q">Observa la estatua que hay en esta hoja. ¿Quien es? Està en el centro de la plaza</string>
+    <string name="G3Q4A0">Felipe IV</string>
+    <string name="G3Q4A1">José Bonaparte</string>
+    <string name="G3Q4A2">Felipe III</string>
+    <string name="G3Q4A3">Galileo Galilei</string>
+
+    <string name="G3Q5Q">¿Como se llama esta plaza? Busca el nombre cerca de la plaza</string>
+    <string name="G3Q5A0">Plaza Mayor</string>
+    <string name="G3Q5A1">Plaza Almudena</string>
+    <string name="G3Q5A2">Plaza Oriente</string>
+    <string name="G3Q5A3">Plaza Espana</string>
+
+    <string name="G3Q6Q">¿Que se representa en el Teatro Real?</string>
+    <string name="G3Q6A0">Peliculas</string>
+    <string name="G3Q6A1">Discursos electrorales</string>
+    <string name="G3Q6A2">Conciertos, operas y obras teatrales</string>
+    <string name="G3Q6A3">Publicidad de viajes</string>
+
+    <string name="G3Q7Q">¿Como se llama la estacion de metro de esta plaza?</string>
+    <string name="G3Q7A0">Isabel II</string>
+    <string name="G3Q7A1">Opera</string>
+    <string name="G3Q7A2">Callao</string>
+    <string name="G3Q7A3">Sol</string>
 </resources>
