@@ -15,19 +15,19 @@ Celle-ci sera seulement disponible sur le google play store lors de sa sortie.
 
 Page d'accueil de l'application:
 
-![Page d'accueil](image/accueil.png)
+![Page d'accueil](Image/acceuil.png)
 
 Page pour lancer le quiz:
 
-![Page de lancement](image/start.png)
+![Page de lancement](Image/start.png)
 
 Page principale du quiz:
     * Une barre de progression montre l'avancer du joueur
     * Liste de toutes les questions
     * Choix de la catégorie
 
-![Page principale](image/list.png)
+![Page principale](Image/list.png)
 
 Page de question:
 
-![Page principale](image/question.png)
+![Page principale](Image/question.png)
