@@ -16,4 +16,6 @@
 
     <color name="progressFill">#5e054f</color>
     <color name="progressNoFill">#EDEDED</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

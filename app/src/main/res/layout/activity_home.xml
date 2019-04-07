@@ -17,14 +17,40 @@
         app:menu="@menu/top_menu"
         android:background="@color/colorPrimaryDark" >
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@style/MyProgressBarTwo"
-            android:layout_height="20dp"
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:progress="40"
-            android:layout_gravity="left"
-            android:theme="@style/MyProgressBarTwo" />
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/MyProgressBarTwo"
+                android:layout_height="20dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:progress="40"
+                android:layout_gravity="left|center_vertical"
+                android:theme="@style/MyProgressBarTwo" />
+
+            <ProgressBar
+                android:id="@+id/chronoBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:background="@drawable/chrono_background"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="100"
+                android:progress="65" />
+
+
+            <Chronometer
+                android:id="@+id/simpleChronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="17dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
 

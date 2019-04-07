@@ -9,7 +9,8 @@
     <string name="team_name_header">Equipe {TEAM_NAME}</string>
     <string name="quiz">Quiz</string>
     <string name="team_name">Nom de l\'équipe</string>
-    <string name="start">Commencez</string>
+    <string name="code_prof">Code professeur</string>
+    <string name="start">Commencer</string>
 
     <string name="yellow_question_1">Lee el texto atentament y contesta: En qué ano fue liberada la ciudad de Madrid?</string>
     <string name="yellow_question_1_reply1">1812</string>
@@ -36,7 +37,7 @@
     <string name="yellow_question_4_reply4">Roja y blanca</string>
     <string name="resume_game">Reprendre</string>
     <string name="new_game">Nouvelle partie</string>
-    <string name="main_title">Découvrez\nMadrid</string>
+    <string name="main_title">Découvrez\nBarcelone</string>
     <string name="start_title">Commencez\nle Quiz</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -48,108 +49,225 @@
     <string name="question_label4">Jaune</string>
 
 
-    <!-- QUESTIONS
-
-        FORMAT: G<NUMBER>Q<Number><Q|D|R<0|1|2|3>>
+    <!--
+            QUESTIONS FORMAT: G<ID>Q<ID><Q|D|R<0|1|2|3>>
     -->
 
-    <!-- GROUPE 2 -->
+    <!--
+        SPECIAL CHAR
 
-    <string name="G2Q0Q">Lee el texto atentament y contesta: ¿En qué ano fue liberada la ciudad de Madrid?</string>
-    <string name="G2Q0A0">1812</string>
-    <string name="G2Q0A1">1810</string>
-    <string name="G2Q0A2">1583</string>
-    <string name="G2Q0A3">1800</string>
+        á ó ‎í ¿ ú
+    -->
 
-    <string name="G2Q1Q">¿Que instrumento musical ves en las torres de la catedral?</string>
-    <string name="G2Q1A0">Trompeta</string>
-    <string name="G2Q1A1">Guitarra</string>
-    <string name="G2Q1A2">Campana</string>
-    <string name="G2Q1A3">Piano</string>
+    <!-- GROUPE 1 (ID:0) -->
 
-    <string name="G2Q2Q">¿Quién es la estatua que aparece senalada en rojo?</string>
-    <string name="G2Q2A0">San juan</string>
-    <string name="G2Q2A1">San Matias</string>
-    <string name="G2Q2A2">San Pedro</string>
-    <string name="G2Q2A3">San Simon</string>
+    <string name="G0Q0DESC">Busca esta fachada cerca de la entrada al MERCADO DE SANTA CATERNIA</string>
+    <string name="G0Q0Q">¿Qué NO puedes observar encima del mostrador de la tienda?</string>
+    <string name="G0Q0A0">Plátano</string>
+    <string name="G0Q0A1">Huevo</string>
+    <string name="G0Q0A2">Tijeras</string>
+    <string name="G0Q0A3">Balanza</string>
 
-    <string name="G2Q3Q">¿De qué color es la bandera espanola que estan en su fachada?</string>
-    <string name="G2Q3A0">Roja y azul</string>
-    <string name="G2Q3A1">Roja y amarilla</string>
-    <string name="G2Q3A2">Roja y verde</string>
-    <string name="G2Q3A3">Roja y blanca</string>
+    <string name="G0Q1Q">Observa la fachad del Mercado de Santa Caterina ¿Qué forma geométrica tiene el techo? Elige la respuesta correcta:</string>
 
-    <string name="G2Q4Q">Observa la estatua que hay en esta hoja. ¿Quien es? Està en el centro de la plaza</string>
-    <string name="G2Q4A0">Felipe IV</string>
-    <string name="G2Q4A1">José Bonaparte</string>
-    <string name="G2Q4A2">Felipe III</string>
-    <string name="G2Q4A3">Galileo Galilei</string>
+    <string name="G0Q2DESC">Busca esta placa de la entrada del mercado</string>
+    <string name="G0Q2Q">¿Qué fecha aparece en la placa?</string>
+    <string name="G0Q2A0">12 Octubre de 1932</string>
+    <string name="G0Q2A1">23 Agosto de 1951</string>
+    <string name="G0Q2A2">23 Abril de 1948</string>
+    <string name="G0Q2A3">11 Abril de 1948</string>
 
-    <string name="G2Q5Q">¿Como se llama esta plaza? Busca el nombre cerca de la plaza</string>
-    <string name="G2Q5A0">Plaza Mayor</string>
-    <string name="G2Q5A1">Plaza Almudena</string>
-    <string name="G2Q5A2">Plaza Oriente</string>
-    <string name="G2Q5A3">Plaza Espana</string>
+    <string name="G0Q3Q">¿Cómo se llama la tienda?</string>
+    <string name="G0Q3A0">Queviures Lamiel</string>
+    <string name="G0Q3A1">Torres Conserves</string>
+    <string name="G0Q3A2">Bar Juan</string>
+    <string name="G0Q3A3">La Torre</string>
 
-    <string name="G2Q6Q">¿Que se representa en el Teatro Real?</string>
-    <string name="G2Q6A0">Peliculas</string>
-    <string name="G2Q6A1">Discursos electrorales</string>
-    <string name="G2Q6A2">Conciertos, operas y obras teatrales</string>
-    <string name="G2Q6A3">Publicidad de viajes</string>
+    <string name="G0Q4Q">¿Qué producto típico de España se vende en esta tienda?</string>
+    <string name="G0Q4A0">Aceitunas</string>
+    <string name="G0Q4A1">Vino</string>
+    <string name="G0Q4A2">Pescado</string>
+    <string name="G0Q4A3">Naranjas</string>
 
-    <string name="G2Q7Q">¿Como se llama la estacion de metro de esta plaza?</string>
-    <string name="G2Q7A0">Isabel II</string>
-    <string name="G2Q7A1">Opera</string>
-    <string name="G2Q7A2">Callao</string>
-    <string name="G2Q7A3">Sol</string>
+    <string name="G0Q5DESC">Busca por el mercado azafrán:</string>
+    <string name="G0Q5Q">¿Qué color tiene el azafrán?</string>
+    <string name="G0Q5A0">Amarillo</string>
+    <string name="G0Q5A1">Azul</string>
+    <string name="G0Q5A2">Rojo</string>
+    <string name="G0Q5A3">Verde</string>
 
-        <!-- GROUPE 3 -->
+    <string name="G0Q6Q">¿En el tercer escalón del cosumo diario qué podemos encontrar?</string>
+    <string name="G0Q6A0">Fruta, verdura y queso</string>
+    <string name="G0Q6A1">Arroz, huevos y pescado</string>
+    <string name="G0Q6A2">Fruta, verdura y aceite</string>
+    <string name="G0Q6A3">Leche, queso y agua</string>
 
-    <string name="G3Q0Q">Lee el texto atentament y contesta: ¿En qué ano fue liberada la ciudad de Madrid?</string>
-    <string name="G3Q0A0">1812</string>
-    <string name="G3Q0A1">1810</string>
-    <string name="G3Q0A2">1583</string>
-    <string name="G3Q0A3">1800</string>
+    <string name="G0Q7Q">En la base de la pirámide ¿qué nos encontramos?</string>
+    <string name="G0Q7A0">Bollería y embutidos</string>
+    <string name="G0Q7A1">Hidratación y deporte</string>
+    <string name="G0Q7A2">Pescado, carne y huevos</string>
+    <string name="G0Q7A3">Queso, leche y yogur</string>
 
-    <string name="G3Q1Q">¿Que instrumento musical ves en las torres de la catedral?</string>
-    <string name="G3Q1A0">Trompeta</string>
-    <string name="G3Q1A1">Guitarra</string>
-    <string name="G3Q1A2">Campana</string>
-    <string name="G3Q1A3">Piano</string>
+    <!-- GROUPE 2 (ID:1) -->
 
-    <string name="G3Q2Q">¿Quién es la estatua que aparece senalada en rojo?</string>
-    <string name="G3Q2A0">San juan</string>
-    <string name="G3Q2A1">San Matias</string>
-    <string name="G3Q2A2">San Pedro</string>
-    <string name="G3Q2A3">San Simon</string>
+    <string name="G1Q0Q">Busca en la Plaza Lluís Millet: ¿Qué figura hay debajo del interrogante?</string>
+    <string name="G1Q0A0">A</string>
+    <string name="G1Q0A1">B</string>
+    <string name="G1Q0A2">C</string>
+    <string name="G1Q0A3">D</string>
 
-    <string name="G3Q3Q">¿De qué color es la bandera espanola que estan en su fachada?</string>
-    <string name="G3Q3A0">Roja y azul</string>
-    <string name="G3Q3A1">Roja y amarilla</string>
-    <string name="G3Q3A2">Roja y verde</string>
-    <string name="G3Q3A3">Roja y blanca</string>
+    <string name="G1Q1Q">Contesta ¿qué lleva la figura B en la mano?</string>
+    <string name="G1Q1A0">Paraguas</string>
+    <string name="G1Q1A1">Ipad</string>
+    <string name="G1Q1A2">Flor</string>
+    <string name="G1Q1A3">Espada</string>
 
-    <string name="G3Q4Q">Observa la estatua que hay en esta hoja. ¿Quien es? Està en el centro de la plaza</string>
-    <string name="G3Q4A0">Felipe IV</string>
-    <string name="G3Q4A1">José Bonaparte</string>
-    <string name="G3Q4A2">Felipe III</string>
-    <string name="G3Q4A3">Galileo Galilei</string>
+    <string name="G1Q2DESC">Estás en Calle Sant Pere Més Alt</string>
+    <string name="G1Q2Q">Esta tienda está en el número 6 de la calle, pero si observas verás que hay más números 6. ¿Cuántos puedes ver?</string>
+    <string name="G1Q2A0">Uno</string>
+    <string name="G1Q2A1">Tres</string>
+    <string name="G1Q2A2">Dos</string>
+    <string name="G1Q2A3">Cuatro</string>
 
-    <string name="G3Q5Q">¿Como se llama esta plaza? Busca el nombre cerca de la plaza</string>
-    <string name="G3Q5A0">Plaza Mayor</string>
-    <string name="G3Q5A1">Plaza Almudena</string>
-    <string name="G3Q5A2">Plaza Oriente</string>
-    <string name="G3Q5A3">Plaza Espana</string>
+    <string name="G1Q3Q">Observa la puerta de la tienda. ¿De qué material está hecha? Elige la respuesta correcta:</string>
+    <string name="G1Q3A0">Metal</string>
+    <string name="G1Q3A1">Madera</string>
+    <string name="G1Q3A2">Piedra</string>
+    <string name="G1Q3A3">Cristal</string>
 
-    <string name="G3Q6Q">¿Que se representa en el Teatro Real?</string>
-    <string name="G3Q6A0">Peliculas</string>
-    <string name="G3Q6A1">Discursos electrorales</string>
-    <string name="G3Q6A2">Conciertos, operas y obras teatrales</string>
-    <string name="G3Q6A3">Publicidad de viajes</string>
+    <string name="G1Q4DESC">Observa el Palau de la Música Catalana</string>
+    <string name="G1Q4Q">Busca en la fachada del edificio las palabras ORFEÓ CATALÀ ¿Qué hay entre las palabras ORFEÓ y CATALÀ?</string>
+    <string name="G1Q4A0">Una corona de flores</string>
+    <string name="G1Q4A1">Un pez</string>
+    <string name="G1Q4A2">Un reloj</string>
+    <string name="G1Q4A3">Una espada</string>
 
-    <string name="G3Q7Q">¿Como se llama la estacion de metro de esta plaza?</string>
-    <string name="G3Q7A0">Isabel II</string>
-    <string name="G3Q7A1">Opera</string>
-    <string name="G3Q7A2">Callao</string>
-    <string name="G3Q7A3">Sol</string>
+    <string name="G1Q5Q">Observa el mosaico que recubre las columnas. Identifica tres colores que aparezcan en el mosaico.</string>
+    <string name="G1Q5A0">Verde, naranja, azul y rosa</string>
+    <string name="G1Q5A1">Lila, negro y verde</string>
+    <string name="G1Q5A2">Blanco, gris, granate y rojo</string>
+    <string name="G1Q5A3">Verde, negro y marrón</string>
+
+    <string name="G1Q6Q">En la fachada del Palau de la Música encontrarás unas farolas como las de la imagen ¿Cuántas puedes contar?</string>
+    <string name="G1Q6A0">2</string>
+    <string name="G1Q6A1">4</string>
+    <string name="G1Q6A2">3</string>
+    <string name="G1Q6A3">5</string>
+
+    <string name="G1Q7Q">Busca la tienda y identifica el producto que NO se vé dibujados en el cartel.</string>
+    <string name="G1Q7A0">Sandía</string>
+    <string name="G1Q7A1">Piña</string>
+    <string name="G1Q7A2">Cereza</string>
+    <string name="G1Q7A3">Plátano</string>
+
+    <!-- GROUPE 3 (ID:2) -->
+
+    <string name="G2Q0DESC">Busca el numero 5 de la Calle Freixures y observa la fachada</string>
+    <string name="G2Q0Q">¿Cuántas ventanas hay en la vivienda que està encima des mercado?</string>
+    <string name="G2Q0A0">33 ventanas</string>
+    <string name="G2Q0A1">20 ventanas</string>
+    <string name="G2Q0A2">23 ventanas</string>
+    <string name="G2Q0A3">11 ventanas</string>
+
+    <string name="G2Q1Q">Busca la placa de cerámica ¿Qué instumento toca el hombre que está sentado?</string>
+    <string name="G2Q1A0">Una guitarra</string>
+    <string name="G2Q1A1">Un piano</string>
+    <string name="G2Q1A2">Una flauta</string>
+    <string name="G2Q1A3">Una armónica</string>
+
+    <string name="G2Q2Q">Busca la CAPILLA DE MARCÚS. F‎íjate en la parte superior de la valla ¿para qué crees serv‎ían?</string>
+    <string name="G2Q2A0">Evitar la humedad</string>
+    <string name="G2Q2A1">Para colgar comida para las palomas</string>
+    <string name="G2Q2A2">Evitar que las palomas se posen</string>
+    <string name="G2Q2A3">Es algo totalmente estético</string>
+
+    <string name="G2Q3Q">¿Qué animal aparece dibujado?</string>
+    <string name="G2Q3A0">Perro</string>
+    <string name="G2Q3A1">Caballo</string>
+    <string name="G2Q3A2">Gato</string>
+    <string name="G2Q3A3">Coche</string>
+
+    <string name="G2Q4DESC">En esta zona podemos encontrar el museo de Picasso y el museo de Arte Pre-colombino.</string>
+    <string name="G2Q4Q">Lee la información del Museo Picasso y contesta: ¿Cuántos palacios conforman el Museo Picasso?</string>
+    <string name="G2Q4A0">5</string>
+    <string name="G2Q4A1">4</string>
+    <string name="G2Q4A2">3</string>
+    <string name="G2Q4A3">2</string>
+
+    <string name="G2Q5Q">Lee la información del Museo Picasso y contesta: ¿En qué año se inauguró el Museo Picasso?</string>
+    <string name="G2Q5A0">1981</string>
+    <string name="G2Q5A1">1999</string>
+    <string name="G2Q5A2">1963</string>
+    <string name="G2Q5A3">1970</string>
+
+    <string name="G2Q6DESC">Entra el patio del Museo Picasso y lee el texto</string>
+    <string name="G2Q6Q">Lee la información de Picasso y contesta: ¿Dónde murió Pablo Picasso?</string>
+    <string name="G2Q6A0">España</string>
+    <string name="G2Q6A1">Francia</string>
+    <string name="G2Q6A2">Portugal</string>
+    <string name="G2Q6A3">Suiza</string>
+
+    <string name="G2Q7Q">Lee la información de Picasso y contesta: ¿En qué movimiento artístico participó Picasso activamente?</string>
+    <string name="G2Q7A0">Expresionismo</string>
+    <string name="G2Q7A1">Surrealismo</string>
+    <string name="G2Q7A2">Cubismo</string>
+    <string name="G2Q7A3">Pop Art</string>
+
+    <!-- GROUPE 4 (ID:3) -->
+
+    <string name="G3Q0DESC">Colocate en la puerta principal de la Basilica de santa Maria</string>
+    <string name="G3Q0Q">Lee la información de la Basilica y contesta: ¿En qué año finalizó la construcción de la basílica?</string>
+    <string name="G3Q0A0">1383</string>
+    <string name="G3Q0A1">1329</string>
+    <string name="G3Q0A2">1323</string>
+    <string name="G3Q0A3">1389</string>
+
+    <string name="G3Q1Q">Lee la información de la Basilica y contesta: ¿Cómo se llama la puerta principal de la Basílica?</string>
+    <string name="G3Q1A0">Puerta del Mar</string>
+    <string name="G3Q1A1">Puerta de Santa María</string>
+    <string name="G3Q1A2">Puerta del Born</string>
+    <string name="G3Q1A3">Puerta de María</string>
+
+    <string name="G3Q2Q">Lee la información de la Basilica y contesta:  Acércate a la puerta de la basílica y busca estas figuras. Estas figuras se colocaron en honor a los...</string>
+    <string name="G3Q2A0">Herreros</string>
+    <string name="G3Q2A1">Carpinteros</string>
+    <string name="G3Q2A2">Porteadores</string>
+    <string name="G3Q2A3">Cocineros</string>
+
+    <string name="G3Q3DESC">Delante de la Basilica puedes ver una fuente con grifos</string>
+    <string name="G3Q3Q">¿Qué palabra hay escrita en los grifos?</string>
+    <string name="G3Q3A0">Cataluña</string>
+    <string name="G3Q3A1">Barcelona</string>
+    <string name="G3Q3A2">Santa María</string>
+    <string name="G3Q3A3">Born</string>
+
+    <string name="G3Q4DESC">Ves rodeando la Basilica segun el map, encontraras una plaza donde hay un monumento</string>
+    <string name="G3Q4Q">Este monumento se hizo para conmemorar las muertes de las personas que defendieron Barcelona en una guerra muy importante . ¿ En qué año fue esta guerra? Busca la respuesta en el monumento.</string>
+    <string name="G3Q4A0">1714</string>
+    <string name="G3Q4A1">1417</string>
+    <string name="G3Q4A2">1923</string>
+    <string name="G3Q4A3">2001</string>
+
+    <string name="G3Q5Q">Qué hay en la parte superior del monumento?</string>
+    <string name="G3Q5A0">Agua</string>
+    <string name="G3Q5A1">Tierra</string>
+    <string name="G3Q5A2">Fuego</string>
+    <string name="G3Q5A3">Una estátua</string>
+
+    <string name="G3Q6DESC">Colocate en la puerta principal de la Basilica de Santa Maria </string>
+    <string name="G3Q6Q">Faltan dos personajes encima de la puerta. ¿Cómo se llama este tipo de personaje?</string>
+    <string name="G3Q6A0">Príncipes</string>
+    <string name="G3Q6A1">Demonios</string>
+    <string name="G3Q6A2">Ángeles</string>
+    <string name="G3Q6A3">Soldados</string>
+
+    <string name="G3Q7Q">En la parte superior de la puerta es posible ver las cruces dibujadas con ribetes. ¿Cuántos ribetes forman cada cruz?</string>
+    <string name="G3Q7A0">9</string>
+    <string name="G3Q7A1">10</string>
+    <string name="G3Q7A2">11</string>
+    <string name="G3Q7A3">12</string>
+
+    <string name="title_activity_map">MapActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

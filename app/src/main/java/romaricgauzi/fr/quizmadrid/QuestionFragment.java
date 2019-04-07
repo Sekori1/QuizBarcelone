@@ -19,26 +19,26 @@ public class QuestionFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private QuestionListAdapter mAdapter;
-    private QuestionGroup questionGroup;
+    private QuestionInfo[] questions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        
         View view = inflater.inflate(R.layout.fragment_question, container, false);
 
         Integer i = null;
         try {
             i = getArguments().getInt("Q");
             Log.d("FRAG", "receive" + i);
-            questionGroup = Home.getQuestionGroup(i);
+            questions = Home.QUESTIONS[i];
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (questionGroup != null) {
+        if (questions != null) {
             mRecyclerView = view.findViewById(R.id.recyclerview);
-            mAdapter = new QuestionListAdapter(view.getContext(), questionGroup);
+            mAdapter = new QuestionListAdapter(view.getContext(), i);
             mRecyclerView.setAdapter(mAdapter);
             mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         }

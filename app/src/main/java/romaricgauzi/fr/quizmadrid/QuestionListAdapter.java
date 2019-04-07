@@ -11,15 +11,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapter.QuestionViewHolder> {
 
     private LayoutInflater mInflater;
-    private QuestionGroup questionGroup;
+    private int groupID;
+    private QuestionInfo[] questions;
 
-    public QuestionListAdapter(Context context, QuestionGroup questionGroup) {
+    public QuestionListAdapter(Context context, int groupID) {
         this.mInflater = LayoutInflater.from(context);
-        this.questionGroup = questionGroup;
+        this.groupID = groupID;
+        this.questions = Home.QUESTIONS[groupID];
     }
 
     @NonNull
@@ -32,43 +36,48 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final QuestionViewHolder holder, final int id) {
-        final QuestionProfil questionProfil = questionGroup.getQuestionProfils()[id];
 
-        int r = questionGroup.getAnswereOf(id);
+        int r = questions[id].getAnswered();
 
         Log.d("TEST","BUILD QUESTION ID "  + id + " , ANSWER ID " + r);
 
         View view = holder.getView();
         ImageView imageView = holder.getImageView();
-        if(r != 0)imageView.setColorFilter(view.getResources().getColor(R.color.colorPrimaryDark));
+        if(r != -1)imageView.setColorFilter(view.getResources().getColor(R.color.colorPrimaryDark));
             else imageView.setColorFilter(view.getResources().getColor(R.color.grey));
         final TextView textView = holder.getQuestionTitle();
-        textView.setText("Question " + (id+1));
+        final TextView textQuestionNumber = holder.getQuestionNumber();
+        //textView.setText("Question " + (id+1));
+        Groups.find(groupID).changeGroupBackground(textQuestionNumber);
+        textQuestionNumber.setText(String.valueOf(id+1));
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, Question.class);
-
-                intent.putExtra(Question.QUESTION_MESSAGE, questionProfil.getQuestion());
-                intent.putExtra(Question.REPLY_MESSAGE, questionProfil.getReply());
-                intent.putExtra(Question.QUESTION_GROUP_ID_MESSAGE, questionGroup.getId());
-                intent.putExtra(Question.QUESTION_ID_MESSAGE, id);
+                boolean gridView = questions[id].getQuestionOptions().isGridPresentation();
+                Intent intent;
+                if(!gridView){
+                    intent = new Intent(context, Question.class);
+                }else{
+                    intent = new Intent(context, QuestionGrid.class);
+                }
+                intent.putExtra(Question.GROUP_ID, groupID);
+                intent.putExtra(Question.QUESTION_ID, id);
 
                 context.startActivity(intent);
-
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return questionGroup.getQuestionProfils().length;
+        return questions.length;
     }
 
     class QuestionViewHolder extends RecyclerView.ViewHolder {
 
         private TextView questionTitle;
+        private TextView questionNumber;
         private ImageView imageView;
         private View view;
         final QuestionListAdapter mAdapter;
@@ -77,6 +86,7 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
             super(itemView);
             view = itemView;
             questionTitle = itemView.findViewById(R.id.question_title);
+            questionNumber = itemView.findViewById(R.id.question_number);
             imageView = itemView.findViewById(R.id.check);
             this.mAdapter = adapter;
         }
@@ -91,6 +101,10 @@ public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapte
 
         public View getView() {
             return view;
+        }
+
+        public TextView getQuestionNumber() {
+            return questionNumber;
         }
     }
 }

@@ -15,11 +15,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         this.mNumOfTabs = NumOfTabs;
     }
 
-    /**
-     * Return the Fragment associated with a specified position.
-     *
-     * @param position
-     */
     @Override
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
@@ -30,9 +25,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         return fragment;
     }
 
-    /**
-     * Return the number of views available.
-     */
     @Override
     public int getCount() {
         return mNumOfTabs;

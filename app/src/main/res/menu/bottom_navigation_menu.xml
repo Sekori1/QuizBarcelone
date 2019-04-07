@@ -4,25 +4,25 @@
     <item
         android:id="@+id/action_android"
         android:enabled="true"
-        android:icon="@drawable/ic_camera_alt_black_24dp"
-        android:title="@string/itineraryYellow"
+        android:icon="@drawable/ic_shopping_basket"
+        android:title="@string/itineraryGreen"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_logo"
         android:enabled="true"
-        android:icon="@drawable/ic_store_black_24dp"
-        android:title="@string/itineraryGreen"
+        android:icon="@drawable/ic_palau_m_edit"
+        android:title="@string/itineraryYellow"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_landscape"
         android:enabled="true"
-        android:icon="@drawable/ic_school_black_24dp"
-        android:title="@string/itineraryRed"
+        android:icon="@drawable/ic_artistic_brush"
+        android:title="@string/itineraryBlue"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_bottom_4"
         android:enabled="true"
-        android:icon="@drawable/ic_free_breakfast_black_24dp"
-        android:title="@string/itineraryBlue"
+        android:icon="@drawable/ic_cathedral_basilica"
+        android:title="@string/itineraryRed"
         app:showAsAction="ifRoom" />
 </menu>

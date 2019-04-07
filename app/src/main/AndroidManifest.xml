@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MapActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".QuestionGrid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FinishActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -22,13 +31,9 @@
             android:name=".Question"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QuestionList"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Home"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PreQuestion" />
-        <activity android:name=".NewGameActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".NewGameActivity" />
     </application>
 
 </manifest>

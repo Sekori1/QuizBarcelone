@@ -1,28 +1,29 @@
 package romaricgauzi.fr.quizmadrid;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Question extends AppCompatActivity {
 
-    public static String QUESTION_GROUP_ID_MESSAGE = "QUESTION_GROUP_ID_MESSAGE";
-    public static String QUESTION_ID_MESSAGE = "QUESTION_ID_MESSAGE";
-    public static String QUESTION_MESSAGE = "QUESTION_MESSAGE";
-    public static String REPLY_MESSAGE = "REPLY_MESSAGE";
+    public static String GROUP_ID = "C_00001";
+    public static String QUESTION_ID = "C_00002";
 
+    private int groupID;
+    private int questionID;
 
-    private int question_id;
-    private int question_group_id;
-
-    private String question;
-    private String[] reply = new String[4];
-
+    private TextView desc;
     private TextView questionView;
+    private ImageView imageViewDesc;
     private TextView[] replyView = new TextView[4];
 
     @Override
@@ -30,19 +31,15 @@ public class Question extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-
         if(intent != null){
             Bundle bundle = intent.getExtras();
             if(bundle != null){
-                if(bundle.containsKey(QUESTION_MESSAGE))this.question = bundle.getString(QUESTION_MESSAGE);
-                if(bundle.containsKey(REPLY_MESSAGE))this.reply = bundle.getStringArray(REPLY_MESSAGE);
-                if(bundle.containsKey(QUESTION_GROUP_ID_MESSAGE))this.question_group_id = bundle.getInt(QUESTION_GROUP_ID_MESSAGE);
-                if(bundle.containsKey(QUESTION_ID_MESSAGE))this.question_id = bundle.getInt(QUESTION_ID_MESSAGE);
+                if(bundle.containsKey(GROUP_ID))this.groupID = bundle.getInt(GROUP_ID);
+                if(bundle.containsKey(QUESTION_ID))this.questionID = bundle.getInt(QUESTION_ID);
             }else{
                 closeActivity();
                 return;
@@ -52,26 +49,48 @@ public class Question extends AppCompatActivity {
             return;
         }
 
+        TextView questionNumberInd = findViewById(R.id.question_number);
+        questionNumberInd.setText(String.valueOf(questionID+1));
+        Groups.find(groupID).changeGroupBackground(questionNumberInd);
+
+        final QuestionInfo questionInfo = Home.QUESTIONS[groupID][questionID];
+        final String description = questionInfo.getDesc();
+        final String imageDesc = questionInfo.getQuestionOptions().getImageDesc();
+        final String questionTxt = questionInfo.getQuestion();
+        final String[] answersTxt = questionInfo.getAnsweres();
+        final int answered = questionInfo.getAnswered();
+
+
+        desc = findViewById(R.id.desc);
         questionView = findViewById(R.id.question);
-        replyView[0] = findViewById(R.id.reply1);
-        replyView[1] = findViewById(R.id.reply2);
-        replyView[2] = findViewById(R.id.reply3);
-        replyView[3] = findViewById(R.id.reply4);
+        imageViewDesc = findViewById(R.id.imageDesc);
+        replyView[0] = findViewById(R.id.answer_1);
+        replyView[1] = findViewById(R.id.answer_2);
+        replyView[2] = findViewById(R.id.answer_3);
+        replyView[3] = findViewById(R.id.answer_4);
 
-        int r = Home.getQuestionGroup(question_group_id).getAnswereOf(question_id);
+        questionView.setText(questionTxt);
+        if(description != null){
+            this.desc.setVisibility(View.VISIBLE);
+            this.desc.setText(description);
+        }
+        if(imageDesc != null){
+            int id = getResources().getIdentifier(imageDesc, "drawable", getPackageName());
+            if(id != 0)imageViewDesc.setImageResource(id);
+        }
 
-        questionView.setText(question);
+
         for (int i = 0; i < 4; i++) {
-            final int reponseNumber = i+1;
-            replyView[i].setText(reply[i]);
+            final int reponseNumber = i;
+            if(answersTxt[i] != null) replyView[i].setText(answersTxt[i]);
             replyView[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Home.getQuestionGroup(question_group_id).setAnswereOf(question_id, reponseNumber);
+                    questionInfo.setAnswered(reponseNumber);
                     closeActivity();
                 }
             });
-            if(r == i+1){
+            if(answered == i){
                 replyView[i].setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.answer_button_validate) );
                 replyView[i].setTextColor(getResources().getColor(R.color.white));
             }
@@ -79,12 +98,6 @@ public class Question extends AppCompatActivity {
     }
 
     private void closeActivity(){
-        //TODO open an other activity
-        /*Intent intent = new Intent(this, QuestionList.class);
-
-        Home.selectExtraGroup(intent, question_group_id);
-        startActivity(intent);*/
-
         finish();
     }
 
@@ -94,4 +107,23 @@ public class Question extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu_question, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.carte){
+            Intent intent = new Intent(this, MapActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

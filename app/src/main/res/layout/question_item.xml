@@ -18,19 +18,38 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/question_title"
+            android:id="@+id/question_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Question"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/check"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/question_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Question X"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="19sp"
-                app:layout_constraintBottom_toBottomOf="@+id/check"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/question_title"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView

@@ -6,32 +6,39 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
+import android.os.SystemClock;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ProgressBar;
 
 public class Home extends AppCompatActivity {
 
+    private final static int MAX_TIME = 60000;//7200000
     private final static int BACK_ALERT = 10;
+    private final static int VALIDE_ALERT = 11;
+    private final static int NO_ANSWER_ALL = 12;
+    private final static int NO_TIME = 13;
+
 
     private BottomNavigationView bottomNavigationView;
     private ProgressBar progressBar;
+    private ProgressBar chronoBar;
+    private Chronometer simpleChronometer;
 
     public final static String QUESTION_GROUP_ID = "QUESTION_GROUP_ID";
 
     public static String PACKAGE_NAME;
 
-    private static QuestionGroup[] questions = new QuestionGroup[4];
+    public final static QuestionInfo[][] QUESTIONS = new QuestionInfo[4][];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,43 @@ public class Home extends AppCompatActivity {
 
         this.bottomNavigationView = findViewById(R.id.activity_main_bottom_navigation);
         this.progressBar = findViewById(R.id.progress_bar);
+        this.chronoBar = findViewById(R.id.chronoBar);
+
+        simpleChronometer = findViewById(R.id.simpleChronometer); // initiate a chronometer
+
+        simpleChronometer.start(); // start a chronometer
+
+        simpleChronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                Time time = new Time();
+                time.setToNow();
+                long el = SystemClock.elapsedRealtime();
+                long base = chronometer.getBase();
+                double dif = el - base;
+                double m = (dif / MAX_TIME) * 1000;
+                int i =  Double.valueOf(m).intValue();
+                chronoBar.setProgress(i);
+                chronoBar.setMax(1000);
+
+            }
+        });
+
+        /*
+            Chargement des questions depuis les ressources
+         */
+        for (int i = 0; i < 4; i++) {
+            QuestionInfo[] questionInfos = new QuestionInfo[8];
+            for (int j = 0; j < 8; j++) {
+                questionInfos[j] = getQuestionRes(this, i, j);
+                Log.d("QUESTIONS" ,  "GROUP ID:" + i + " QUESTION ID:" + j + " " +  questionInfos[j].getQuestion());
+                String[] letter = {"A","B","C","D"};
+                for (int k = 0; k < 4; k++) {
+                    Log.d("QUESTIONS" ,  letter[k] + ") " +  questionInfos[j].getAnsweres()[k]);
+                }
+            }
+            QUESTIONS[i] = questionInfos;
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,48 +100,6 @@ public class Home extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(bottomNavListener);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavListener);
-
-        questions[0] = new QuestionGroup(getString(R.string.itineraryYellow), 0,
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2)
-        );
-        questions[1] = new QuestionGroup(getString(R.string.itineraryYellow), 1,
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2)
-        );
-        questions[2] = new QuestionGroup(getString(R.string.itineraryYellow), 2,
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2)
-        );
-        questions[3] = new QuestionGroup(getString(R.string.itineraryYellow), 3,
-                new QuestionProfil(getString(R.string.yellow_question_1), getString(R.string.yellow_question_1_reply1), getString(R.string.yellow_question_1_reply2), getString(R.string.yellow_question_1_reply3), getString(R.string.yellow_question_1_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_2), getString(R.string.yellow_question_2_reply1), getString(R.string.yellow_question_2_reply2), getString(R.string.yellow_question_2_reply3), getString(R.string.yellow_question_2_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_3), getString(R.string.yellow_question_3_reply1), getString(R.string.yellow_question_3_reply2), getString(R.string.yellow_question_3_reply3), getString(R.string.yellow_question_3_reply4), 2),
-                new QuestionProfil(getString(R.string.yellow_question_4), getString(R.string.yellow_question_4_reply1), getString(R.string.yellow_question_4_reply2), getString(R.string.yellow_question_4_reply3), getString(R.string.yellow_question_4_reply4), 2)
-        );
 
         updateProgressBar();
 
@@ -145,6 +147,52 @@ public class Home extends AppCompatActivity {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
+                break;
+            case VALIDE_ALERT:
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+                builder2.setMessage("Voulez-vous vraiment valider vos réponses?");
+                builder2.setCancelable(true);
+                builder2.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Home.this, FinishActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder2.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog2 = builder2.create();
+                dialog2.show();
+                break;
+            case NO_ANSWER_ALL:
+                AlertDialog.Builder builder3 = new AlertDialog.Builder(this);
+                builder3.setMessage("Vous ne pouvez pas valider vos réponses si vous n'avez pas répondu à toutes les questions!");
+                builder3.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog3 = builder3.create();
+                dialog3.show();
+                break;
+            case NO_TIME:
+                AlertDialog.Builder builder4 = new AlertDialog.Builder(this);
+                builder4.setMessage("Vous ne pouvrez valider vos reponses qu'au bout d'une heure.");
+                builder4.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog4 = builder4.create();
+                dialog4.show();
+                break;
         }
         return super.onCreateDialog(id);
     }
@@ -156,51 +204,100 @@ public class Home extends AppCompatActivity {
         return true;
     }
 
-    public static QuestionGroup getQuestionGroup(Intent intent){
-        if(intent != null){
-            Bundle bundle = intent.getExtras();
-            if(bundle != null){
-                if(bundle.containsKey(QUESTION_GROUP_ID)){
-                    return getQuestionGroup(bundle.getInt(QUESTION_GROUP_ID));
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.valide) {
+            if(allQuestionsAnswered()){
+                if(getChronometerTime() > MAX_TIME/2){
+                    showDialog(VALIDE_ALERT);
+                }else{
+                    showDialog(NO_TIME);
+                }
+            }else{
+                if(getChronometerTime() > MAX_TIME){
+                    showDialog(VALIDE_ALERT);
+                }else{
+                    showDialog(NO_ANSWER_ALL);
                 }
             }
+        } else if(id == R.id.carte){
+            Intent intent = new Intent(this, MapActivity.class);
+            startActivity(intent);
         }
-        return null;
+
+        return super.onOptionsItemSelected(item);
     }
 
-    public static QuestionRes getQuestionRes(Context context, int groupID, int questionID){
-        /* FORMAT QUESTION
-        *
-        *   G<NUMBER>Q<Number><Q|D|R<0|1|2|3>>
-         */
-        QuestionRes questionRes = new QuestionRes();
-        questionRes.setQuestion(findStringFromResources(context,"G" + groupID + "Q" + questionID + "Q"));
+    public static QuestionInfo getQuestionRes(Context context, int groupID, int questionID){
+        /* FORMAT QUESTION G<NUMBER>Q<Number><Q|D|R<0|1|2|3>> */
+        QuestionInfo questionInfo = new QuestionInfo(groupID,questionID);
+        questionInfo.setQuestion(findStringFromResources(context,"G" + groupID + "Q" + questionID + "Q"));
         String[] answers = new String[4];
-        for (int i = 0; i < answers.length; i++) answers[i] = findStringFromResources(context,"G" + groupID + "Q" + questionID + "A" + i);
-        questionRes.setAnsweres(answers);
-        return questionRes;
+        String[] images = new String[4];
+        for (int i = 0; i < answers.length; i++){
+            answers[i] = findStringFromResources(context,"G" + groupID + "Q" + questionID + "A" + i);
+        }
+        questionInfo.setAnsweres(answers);
+        questionInfo.setDesc( findStringFromResources(context,"G" + groupID + "Q" + questionID + "DESC"));
+        return questionInfo;
     }
 
     public static String findStringFromResources(Context context, String name) {
         Resources res = context.getResources();
-        return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
-    }
-
-
-    public static QuestionGroup getQuestionGroup(int id){
-        return questions[id];
+        try {
+            return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
+        } catch (Exception e){
+            return null;
+        }
     }
 
     public void updateProgressBar(){
         int max = 0;
         int answered = 0;
-        for(QuestionGroup questionGroup : questions){
-            max += questionGroup.getQuestionAmount();
-            for(int i = 0; i < max; i++){
-                if(questionGroup.getAnswereOf(i) > 0)answered++;
+        for(QuestionInfo[] questions : QUESTIONS){
+            for(QuestionInfo questionInfo : questions){
+                max++;
+                if(questionInfo.getAnswered() >= 0)answered++;
             }
         }
         progressBar.setMax(max);
         progressBar.setProgress(answered);
+    }
+
+    public boolean allQuestionsAnswered(){
+        int max = 0;
+        int answered = 0;
+        for(QuestionInfo[] questions : QUESTIONS){
+            for(QuestionInfo questionInfo : questions){
+                max++;
+                if(questionInfo.getAnswered() >= 0)answered++;
+            }
+        }
+        return max == answered;//TODO
+    }
+
+    public static String getScore(){
+        int max = 0;
+        int valide = 0;
+        for(QuestionInfo[] questions : QUESTIONS){
+            for(QuestionInfo questionInfo : questions){
+                max++;
+                if(questionInfo.getAnswered() >= 0){
+                    if(questionInfo.getAnswered() == questionInfo.getQuestionOptions().getValideAnswer()){
+                        valide++;
+                    }
+                }
+            }
+        }
+        return valide + "/" + max;
+    }
+
+    public double getChronometerTime(){
+        long el = SystemClock.elapsedRealtime();
+        long base = simpleChronometer.getBase();
+        double dif = el - base;
+        return dif;
     }
 }

@@ -1,5 +1,7 @@
 package romaricgauzi.fr.quizmadrid;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -34,15 +36,33 @@ public class NewGameActivity extends AppCompatActivity {
     public void startGame(View view) {
         String txt = editText.getText().toString();
         if(txt.equalsIgnoreCase("")) {
-            Toast.makeText(this, "Il faut donner un nom à votre équipe",
+            Toast.makeText(this, "Il faut avoir le code professeur pour lancer le quiz",
                     Toast.LENGTH_SHORT).show();
         }else{
-            Intent intent = new Intent(this, Home.class);
-            intent.putExtra(TEAM_NAME_MESSAGE, txt);
-            startActivity(intent);
-            finish();
+            if(txt.equalsIgnoreCase("9347")){
+                Intent intent = new Intent(this, Home.class);
+                intent.putExtra(TEAM_NAME_MESSAGE, txt);
+                startActivity(intent);
+                finish();
+            }else{
+                Toast.makeText(this, "Code incorrecte!",
+                        Toast.LENGTH_SHORT).show();
+            }
         }
+    }
 
+    public void getCode(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Le code doit etre donné par votre professeur, guide, ou autres.");
+        builder.setCancelable(true);
+        builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

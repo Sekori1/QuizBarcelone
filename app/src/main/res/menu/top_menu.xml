@@ -1,10 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:actionbarcompat_mse="http://schemas.android.com/apk/res-auto" >
     <item
-        android:id="@+id/action_one"
-        android:icon="@drawable/locked"
+        android:id="@+id/carte"
+        android:icon="@drawable/carte"
         android:orderInCategory="0"
         actionbarcompat_mse:showAsAction="always"
-        android:title="Valide">
+        android:title="Carte">
+    </item>
+    <item
+        android:id="@+id/valide"
+        android:icon="@drawable/ic_crown"
+        android:orderInCategory="1"
+        actionbarcompat_mse:showAsAction="always"
+        android:title="Valider">
     </item>
 </menu>
