@@ -52,6 +52,10 @@ public class QuestionGrid extends AppCompatActivity {
             return;
         }
 
+        TextView questionNumberInd = findViewById(R.id.question_number);
+        questionNumberInd.setText(String.valueOf(questionID+1));
+        Groups.find(groupID).changeGroupBackground(questionNumberInd);
+
         final QuestionInfo questionInfo = Home.QUESTIONS[groupID][questionID];
         final String description = questionInfo.getDesc();
         final String imageDesc = questionInfo.getQuestionOptions().getImageDesc();

@@ -22,7 +22,7 @@ import android.widget.ProgressBar;
 
 public class Home extends AppCompatActivity {
 
-    private final static int MAX_TIME = 60000;//7200000
+    private final static int MAX_TIME = 7200000;
     private final static int BACK_ALERT = 10;
     private final static int VALIDE_ALERT = 11;
     private final static int NO_ANSWER_ALL = 12;
@@ -39,6 +39,9 @@ public class Home extends AppCompatActivity {
     public static String PACKAGE_NAME;
 
     public final static QuestionInfo[][] QUESTIONS = new QuestionInfo[4][];
+    public static String TEAM_NAME;
+    public static String[] PLAYERS;
+    public static String FINAL_TIME = "0h00";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,6 +159,7 @@ public class Home extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(Home.this, FinishActivity.class);
+                        FINAL_TIME = getPlayTime();
                         startActivity(intent);
                         finish();
                     }
@@ -183,7 +187,7 @@ public class Home extends AppCompatActivity {
                 break;
             case NO_TIME:
                 AlertDialog.Builder builder4 = new AlertDialog.Builder(this);
-                builder4.setMessage("Vous ne pouvrez valider vos reponses qu'au bout d'une heure.");
+                builder4.setMessage("Vous ne pourrez valider vos réponses qu'au bout d'une heure.");
                 builder4.setNeutralButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -279,11 +283,13 @@ public class Home extends AppCompatActivity {
     }
 
     public static String getScore(){
-        int max = 0;
+        return getIntegerScore() + "/" + getIntegerMaxScore();
+    }
+
+    public static int getIntegerScore(){
         int valide = 0;
         for(QuestionInfo[] questions : QUESTIONS){
             for(QuestionInfo questionInfo : questions){
-                max++;
                 if(questionInfo.getAnswered() >= 0){
                     if(questionInfo.getAnswered() == questionInfo.getQuestionOptions().getValideAnswer()){
                         valide++;
@@ -291,7 +297,15 @@ public class Home extends AppCompatActivity {
                 }
             }
         }
-        return valide + "/" + max;
+        return valide;
+    }
+
+    public static int getIntegerMaxScore(){
+        int max = 0;
+        for(QuestionInfo[] questions : QUESTIONS){
+            max += questions.length;
+        }
+        return max;
     }
 
     public double getChronometerTime(){
@@ -299,5 +313,13 @@ public class Home extends AppCompatActivity {
         long base = simpleChronometer.getBase();
         double dif = el - base;
         return dif;
+    }
+
+    public String getPlayTime(){
+        double d = getChronometerTime();
+        double stotal = d/1000;
+        int hours = Double.valueOf(stotal / 3600).intValue();
+        int mins = Double.valueOf(((stotal / 60) % 60)).intValue();
+        return hours + "h" + mins;
     }
 }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import romaricgauzi.fr.quizmadrid.utils.AccesMail;
+
 public class MainActivity extends AppCompatActivity {
 
     Button resumeButton;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.resumeButton = findViewById(R.id.resume_button);
         this.newGameButton = findViewById(R.id.new_game_button);
+
 
         this.newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override

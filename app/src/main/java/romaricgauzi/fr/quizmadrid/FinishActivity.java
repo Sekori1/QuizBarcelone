@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import romaricgauzi.fr.quizmadrid.utils.AccesMail;
 
 public class FinishActivity extends AppCompatActivity {
 
@@ -21,9 +26,20 @@ public class FinishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finish);
 
         this.score = findViewById(R.id.score);
-
         this.score.setText(Home.getScore());
 
+        TextView teamTitle = findViewById(R.id.teamTitle);
+        teamTitle.setText(Home.TEAM_NAME);
+
+        TextView playersName = findViewById(R.id.playerList);
+
+        StringBuilder sb = new StringBuilder();
+        for(String player : Home.PLAYERS){
+            sb.append(player + "\n");
+        }
+        playersName.setText(sb.toString());
+
+        new AccesMail().send(Home.TEAM_NAME,  Home.PLAYERS, Home.getIntegerScore(), Home.getIntegerMaxScore(), Home.FINAL_TIME);
     }
 
 
@@ -66,15 +82,6 @@ public class FinishActivity extends AppCompatActivity {
     }
 
     public void indisponible(View v){
-        AlertDialog.Builder builder3 = new AlertDialog.Builder(this);
-        builder3.setMessage("Fonctionnalité indisponible pour le moment");
-        builder3.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog dialog3 = builder3.create();
-        dialog3.show();
+        Toast.makeText(this, "Fonctionnalité indisponible pour le moment" , Toast.LENGTH_SHORT).show();
     }
 }
